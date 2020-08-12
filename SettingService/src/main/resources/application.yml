@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file:///home/yakimov/IdeaProjects/SpringMicroservicesInAction/SettingService/src/main/resources/config/licensingservice
