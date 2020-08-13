@@ -51,7 +51,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>ru.yakimov.ConfigServerApplication.java</start-class>
+        <start-class>ru.yakimov.ConfigServerApplication</start-class>
         <java.version>11</java.version>
         <docker.image.name>yakimov/config-server</docker.image.name>
         <docker.image.tag>chapter3</docker.image.tag>
