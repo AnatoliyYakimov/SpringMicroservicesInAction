@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Data
 @Entity
 @AllArgsConstructor
+@Table(name = "licenses")
 @NoArgsConstructor(force = true)
 @Builder(setterPrefix = "with", builderClassName = "Builder")
 public class License {
