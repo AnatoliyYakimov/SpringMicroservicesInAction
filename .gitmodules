@@ -1,0 +1,3 @@
+[submodule "config-repo"]
+	path = spmia_config_repo
+	url = https://github.com/AnatoliyYakimov/spmia_config_repo

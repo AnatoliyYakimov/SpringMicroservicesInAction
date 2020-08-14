@@ -2,9 +2,12 @@ server:
   port: 8888
 spring:
   profiles:
-    active: native
+    active:
+      - remote_repo
   cloud:
     config:
       server:
-        native:
-          searchLocations: file:///home/yakimov/IdeaProjects/SpringMicroservicesInAction/SettingService/src/main/resources/config/licensingservice
+        git:
+          uri: https://github.com/AnatoliyYakimov/spmia_config_repo/
+          searchPaths: licensingservice
+
