@@ -1,14 +1,12 @@
 package ru.yakimov.licenses.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import ru.yakimov.licenses.models.Organization;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Data
@@ -40,5 +38,8 @@ public class License {
 
     @Column(name = "comment")
     private String comment;
+
+    @Transient
+    private Organization organization;
 }
 

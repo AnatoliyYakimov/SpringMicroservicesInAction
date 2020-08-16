@@ -5,23 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.yakimov</groupId>
-    <artifactId>LicensingService</artifactId>
+    <artifactId>OrganizationService</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>EagleEye Licensing Service</name>
-    <description>Licensing Service</description>
+    <name>Organization Service</name>
+    <description>Organization Service</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.4.RELEASE</version>
     </parent>
-
-    <properties>
-        <java.version>11</java.version>
-        <example.property>I am the property!</example.property>
-    </properties>
 
     <build>
         <plugins>
@@ -63,6 +58,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -92,14 +91,6 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-rsa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
     </dependencies>
 
