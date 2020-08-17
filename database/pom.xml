@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.yakimov</groupId>
+    <artifactId>Database</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <name>Database</name>
+    <description>Application Database</description>
+
+
+
+    <properties>
+        <docker.image.name>anatoliyyakimov/eagle_eye</docker.image.name>
+        <docker.image.tag>${project.version}</docker.image.tag>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <contextDirectory>${project.basedir}/src/main/docker</contextDirectory>
+                    <dockerfile>src/main/docker/Dockerfile</dockerfile>
+                    <repository>${docker.image.name}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

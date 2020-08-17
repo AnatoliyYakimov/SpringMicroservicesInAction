@@ -4,16 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>EurekaService</artifactId>
+    <artifactId>SettingService</artifactId>
     <version>${project.parent.version}</version>
     <packaging>jar</packaging>
 
-    <name>Eureka Server</name>
-    <description>Eureka Server demo project</description>
-
-    <properties>
-        <docker.image.name>anatoliyyakimov/eureka-service</docker.image.name>
-    </properties>
+    <name>Config Server</name>
+    <description>Config Server demo project</description>
 
     <parent>
         <groupId>ru.yakimov</groupId>
@@ -22,12 +18,23 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <docker.image.name>anatoliyyakimov/settings-service</docker.image.name>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>

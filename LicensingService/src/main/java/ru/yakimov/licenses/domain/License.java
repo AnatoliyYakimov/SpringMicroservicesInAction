@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @AllArgsConstructor
-@Table(name = "licenses")
+@Table(name = "license")
 @NoArgsConstructor(force = true)
 @Builder(setterPrefix = "with", builderClassName = "Builder")
 public class License {

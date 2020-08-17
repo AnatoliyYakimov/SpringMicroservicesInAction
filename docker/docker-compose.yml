@@ -1,0 +1,61 @@
+version: '2'
+services:
+  eurekaserver:
+    image:   anatoliyyakimov/eureka-service:0.0.1
+    ports:
+      - "8761:8761"
+  configserver:
+    image: anatoliyyakimov/settings-service:0.0.1
+    ports:
+      - "8888:8888"
+    environment:
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
+      ENCRYPT_KEY:       "${ENCRYPT_KEY}"
+  database:
+    image: anatoliyyakimov/eagla_eye_db:0.0.1
+    ports:
+      - "5433:${DATABASE_PORT}"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD="{cipher}3a3d0af393a67834cc3db532e7e4d0e1ffa954861ae5affc87d2ae2d768a04e4"
+      - POSTGRES_DB=eagle_eye
+  licensingservice:
+    image: anatoliyyakimov/licensing-service:0.0.1
+    ports:
+      - "8080:8080"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8080"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT:   "8761"
+      CONFIGSERVER_PORT:   "8888"
+      DATABASESERVER_PORT: "${DATABASE_PORT}"
+      ENCRYPT_KEY:       "${ENCRYPT_KEY}"
+  organizationservice:
+    image: anatoliyyakimov/organization-service:0.0.1
+    ports:
+      - "8085"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8085"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT:   "8761"
+      CONFIGSERVER_PORT:   "8888"
+      DATABASESERVER_PORT: "${DATABASE_PORT}"
+      ENCRYPT_KEY:       "${ENCRYPT_KEY}"
+  organizationservice2:
+    image: anatoliyyakimov/organization-service:0.0.1
+    ports:
+      - "8085"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8085"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT:   "8761"
+      CONFIGSERVER_PORT:   "8888"
+      DATABASESERVER_PORT: "${DATABASE_PORT}"
+      ENCRYPT_KEY:       "${ENCRYPT_KEY}"
