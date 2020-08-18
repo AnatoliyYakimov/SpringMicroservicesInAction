@@ -1,4 +1,4 @@
-oganiztion_id,license_id,product_name,license_type,license_max,license_allocated,comment
+organization_id,license_id,product_name,license_type,license_max,license_allocated,comment
 d61eaad4-3b42-4143-a935-f5b60427f1ba,f8ecd001-6f85-4d1d-86fd-a8c39315b4bb,Treutel Group,Crimson,23,66,"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti."
 d61eaad4-3b42-4143-a935-f5b60427f1ba,663901b5-4178-43b0-9994-8df3ca29a2da,Osinski and Sons,Blue,69,40,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
 d61eaad4-3b42-4143-a935-f5b60427f1ba,50ed035e-6dac-4e6c-837b-40c9635237d9,"Abshire, Stanton and Beahan",Mauv,75,12,Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
