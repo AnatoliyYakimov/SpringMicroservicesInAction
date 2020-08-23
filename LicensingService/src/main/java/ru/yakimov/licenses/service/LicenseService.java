@@ -1,5 +1,7 @@
 package ru.yakimov.licenses.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.yakimov.licenses.clients.OrganizationClient;
@@ -8,6 +10,7 @@ import ru.yakimov.licenses.domain.License;
 import ru.yakimov.licenses.repository.LicenseRepository;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 
@@ -34,8 +37,25 @@ public class LicenseService {
         license.setOrganization(organizationClient.getOrganization(organizationId));
         return license;
     }
+    private void randomlyRunLong(){
+        Random rand = new Random();
+        int randomNum = rand.nextInt((3 - 1) + 1) + 1;
+        if (randomNum == 3) sleep();
+    }
 
+    private void sleep(){
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @HystrixCommand(commandProperties=
+            {@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value="12000")})
     public List<License> getLicensesByOrg(String organizationId){
+        randomlyRunLong();
         List<License> licenses = licenseRepository.findByOrganizationId( organizationId );
         licenses.forEach(license -> license.setOrganization(organizationClient.getOrganization(license.getOrganizationId())));
         return licenses;

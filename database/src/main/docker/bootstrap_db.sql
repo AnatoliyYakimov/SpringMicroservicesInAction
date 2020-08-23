@@ -31,8 +31,8 @@ COPY organization (organization_id, contact_email, contact_name, contact_phone, 
 
 CREATE USER licensingservice WITH PASSWORD 'qwerty';
 
-GRANT SELECT ON TABLE license TO licensingservice;
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE license TO licensingservice;
 
 CREATE USER organizationservice WITH PASSWORD 'qwerty';
 
-GRANT SELECT ON TABLE organization TO organizationservice;
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE organization TO organizationservice;

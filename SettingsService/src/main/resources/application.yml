@@ -10,4 +10,3 @@ spring:
         git:
           uri: https://github.com/AnatoliyYakimov/spmia_config_repo/
           searchPaths: licensingservice, organizationservice
-

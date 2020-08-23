@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 services:
   eurekaserver:
     image:   anatoliyyakimov/eureka-service:0.0.1
@@ -14,9 +14,10 @@ services:
       ENCRYPT_KEY:       "${ENCRYPT_KEY}"
   database:
     image: anatoliyyakimov/eagle-eye-db:0.0.1
-
     ports:
       - "5433:5432"
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD="{cipher}3a3d0af393a67834cc3db532e7e4d0e1ffa954861ae5affc87d2ae2d768a04e4"
@@ -47,3 +48,6 @@ services:
       CONFIGSERVER_PORT:   "8888"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "${ENCRYPT_KEY}"
+
+volumes:
+  db-data:

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>SettingService</artifactId>
-    <version>${project.parent.version}</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>Config Server</name>
@@ -30,10 +30,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
     </dependencies>
 
